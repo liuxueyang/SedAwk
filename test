@@ -1,0 +1,10 @@
+#!/bin/bash
+for x
+do
+	sed -f sedscr $x > $x.tmp
+	cat $x
+	echo "################################################################################"
+	cat $x.tmp
+	cp sedscr $x.sed
+#	diff $x tmp.$x
+done
