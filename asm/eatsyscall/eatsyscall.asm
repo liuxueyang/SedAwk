@@ -7,8 +7,8 @@
 ;	nasm -f elf -g -F stabs eatsyscall.asm
 
 SECTION .data
-	EatMsg: db "Eat at Liu's", 10
-	EatLen: equ $-EatMsg
+	EatMsg: db "00000000000000000000000000000000", 10
+	EatLen equ $-EatMsg
 
 SECTION .bss
 
@@ -16,8 +16,8 @@ SECTION .text
 	global _start
 _start:
 	nop
-	mov eax, 4 ; system write
-	mov ebx, 1 ; standard ouput
+	mov eax, 4 				; system write
+	mov ebx, 1 				; standard ouput
 	mov ecx, EatMsg
 	mov edx, EatLen
 	int 80h
